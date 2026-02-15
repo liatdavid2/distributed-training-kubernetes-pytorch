@@ -301,4 +301,64 @@ This validation ensures that:
 * The pipeline is ready for distributed training (multi-GPU / Kubernetes)
 
 This stage is a standard production practice in ML pipelines to ensure data integrity before training.
+---
 
+### Step 3 – Model Definition
+
+#### How to run
+
+Command:
+
+```
+python -m src.model
+```
+
+Expected output:
+
+```
+Model created successfully
+Device: cpu
+Output shape: torch.Size([1, 43])
+```
+
+This means:
+
+* The model was created successfully
+* It ran on the available device (CPU or GPU)
+* It produced a valid prediction output for 43 classes
+
+The test uses a dummy input tensor:
+
+```
+[batch_size=1, channels=3, height=224, width=224]
+```
+
+and verifies the model forward pass works correctly.
+
+---
+
+#### Why we chose MobileNetV2
+
+We chose MobileNetV2 because it is:
+
+* Lightweight – fast training and inference
+* Efficient – low memory and compute usage
+* Production-ready – commonly used in real systems
+* Scalable – suitable for distributed training on Kubernetes
+* Standard architecture – easy to explain and maintain
+
+MobileNetV2 is ideal for distributed training demonstrations because it balances:
+
+* performance
+* speed
+* resource efficiency
+
+---
+
+#### What this step prepares for
+
+This step ensures the model is ready for:
+
+* Single-node training
+* Multi-node distributed training (Kubernetes)
+* Integration into a production ML pipeline
