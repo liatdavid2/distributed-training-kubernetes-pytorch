@@ -1,0 +1,49 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# ======================
+# Data
+# ======================
+data/*
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# ======================
+# Artifacts
+# ======================
+artifacts/*
+!artifacts/.gitkeep
+
+# ======================
+# Models
+# ======================
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# ======================
+# Environment
+# ======================
+.env
+
+# ======================
+# IDE
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
