@@ -93,3 +93,45 @@ pip install -r requirements.txt
 
 ---
 
+# Stage 1 – Dataset Loading Pipeline
+
+This stage verifies that the dataset can be loaded and prepared for training.
+
+Pipeline flow:
+
+```
+train.p
+   ↓
+Dataset
+   ↓
+DataLoader
+   ↓
+Batch tensors
+   ↓
+Ready for training
+```
+
+What happens:
+
+* The `train.p` file is loaded from disk
+* `GTSRBDataset` provides indexed access to images and labels
+* Images are converted to PyTorch tensors
+* `DataLoader` groups samples into batches
+
+Run:
+
+```
+python -m src.test_dataset
+```
+
+Expected output:
+
+```
+Loading dataset from: data/gtsrb/train.p
+Dataset size: 34799
+Batch shape: torch.Size([32, 3, 64, 64])
+```
+
+This confirms the data pipeline works and is ready for model training.
+
+---
